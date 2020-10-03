@@ -1,17 +1,18 @@
-// 静的メンバ
-class User {
-  constructor(protected _name: string) { 
-    User.count++;
-  };
-  sayHi(): void {
-    console.log("hi! i am " + this._name);
-  }
-  static count: number = 0;
-  static showDescription(): void {
-    console.log('this class is about users');
-  }
+// Interface
+// 構造的部分型
+function getTotal(result: Result) {
+  return result.a + result.b;
 }
-const tom = new User('Tom');
-const bob = new User('Bob');
-console.log(User.count);
-User.showDescription();
+
+interface Result {
+  a: number,
+  b: number
+};
+
+const result = {
+  a: 32,
+  b: 58, 
+  c: 'hello'
+};
+
+console.log(getTotal(result));
