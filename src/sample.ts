@@ -1,15 +1,18 @@
-// 関数のオーバーロード
-// 同じ名前の関数を宣言できる
+// クラス
+// public, protected, private
 
-function add(a: number, b: number): number; // シグネチャ
-function add(a: string, b: string): string;
-
-function add(a: any, b: any): any {
-  if (typeof a === "string" && typeof b === "string") {
-    return a + " " + b;
+class User {
+  /*
+  name: string;
+  constructor(name: string) {
+    this.name = name;
   }
-  return a + b;
+  */
+  constructor(public name: string) { };
+  sayHi(): void {
+    console.log("hi! i am " + this.name);
+  }
 }
-console.log(add(5, 3));
-console.log(add("hello", "world"));
-// console.log(add("hello", 3));// オーバーロードできない
+const tom = new User('Tom');
+console.log(tom.name);
+tom.sayHi();
