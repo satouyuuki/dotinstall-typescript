@@ -1,21 +1,17 @@
-// クラスの継承
+// 静的メンバ
 class User {
-  constructor(protected _name: string) { };
+  constructor(protected _name: string) { 
+    User.count++;
+  };
   sayHi(): void {
     console.log("hi! i am " + this._name);
   }
-}
-class AdminUser extends User {
-  private _age: number
-  constructor(_name: string, _age: number) {
-    super(_name);
-    this._age = _age;// setter使わなくても大丈夫
-  }
-  public sayHi(): void {
-    console.log('my age: ' + this._age);
-    console.log('my name: ' + this._name);
-    super.sayHi();
+  static count: number = 0;
+  static showDescription(): void {
+    console.log('this class is about users');
   }
 }
-const admin = new AdminUser('tom', 25);
-console.log(admin.sayHi());
+const tom = new User('Tom');
+const bob = new User('Bob');
+console.log(User.count);
+User.showDescription();
