@@ -1,23 +1,14 @@
-// 列挙型->わかりやすく定数を表現できる
-enum Signal {
-  Red,
-  Blue,
-  Yellow
-}
-// enum Signal {
-//   Red = 0,
-//   Blue = 1,
-//   Yellow = 2
+// 関数
+// function add(a: number, b: number): number {
+//   return a + b;
 // }
 
-const signal: Signal = 2;
-
-if (signal === Signal.Red) {
-  console.log('赤');
+function add(a: number, b?: number): number|undefined {
+  // return a + b;// コンパイルエラーになる
+  if (b) {
+    return a + b;
+  }
 }
-if (signal === Signal.Blue) {
-  console.log('青');
-}
-if (signal ===Signal.Yellow) {
-  console.log('黄色');
-}
+// b ? b: number|undefinedになる
+console.log(add(5, 3));
+console.log(add(5));
