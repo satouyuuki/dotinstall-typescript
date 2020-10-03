@@ -1,15 +1,8 @@
-// 内部モジュール
-// module UserModule {
-//   export const name = 'taguchi';
-//   export module AddressModule {
-//     export const zip = "111-1111";
-//   }
-// }
+// 外部モジュール
 
-/// <reference path="./user.ts" />
+// Node - CommonJS webpack
+// RequireJS - AMD
 
-console.log(UserModule.name);
-// console.log(UserModule.AddressModule.zip);
-
-import addr = UserModule.AddressModule;
-console.log(addr.zip);
+// import User = require('./user_amd');
+import User = require('./user_commonjs');
+console.log(User.name);

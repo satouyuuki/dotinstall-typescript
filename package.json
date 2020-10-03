@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "watch": "tsc -w",
-    "js-start": "nodemon ./dist/all.js"
+    "js-start": "nodemon ./dist/sample.js"
   },
   "author": "",
   "license": "ISC"
