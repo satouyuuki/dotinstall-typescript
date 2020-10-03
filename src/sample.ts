@@ -1,18 +1,15 @@
-// 関数
-// function add(a: number, b: number): number {
-//   return a + b;
-// }
+// 関数のオーバーロード
+// 同じ名前の関数を宣言できる
 
-function add(a: number, b?: number): number|undefined {
-  // return a + b;// コンパイルエラーになる
-  if (b) {
-    return a + b;
+function add(a: number, b: number): number; // シグネチャ
+function add(a: string, b: string): string;
+
+function add(a: any, b: any): any {
+  if (typeof a === "string" && typeof b === "string") {
+    return a + " " + b;
   }
+  return a + b;
 }
-// b ? b: number|undefinedになる
 console.log(add(5, 3));
-console.log(add(5));
-
-// 関数式(アロー関数)
-const diff = (a: number, b: number): number => a - b;
-console.log(diff(1, 2));
+console.log(add("hello", "world"));
+// console.log(add("hello", 3));// オーバーロードできない
