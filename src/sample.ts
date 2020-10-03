@@ -1,28 +1,25 @@
-// Interface
-interface SpringResult {
-  a: number;
-}
-interface FallResult {
-  b: number;
-}
-interface FinalResult extends SpringResult, FallResult {
-  final?: number;
-}
-function getTotal(result: FinalResult): number {
-  if (result.final) {
-    return result.a + result.b + result.final;
-  } else {
-    return result.a + result.b;
-  }
+// Interface + Class
+interface GameUser {
+  score: number;
+  showScore(): void;
 }
 
-const result = {
-  a: 32,
-  b: 33,
+class User implements GameUser{
+  constructor(private _name: string, private _score: number) {
+  }
+  sayHi(): void {
+    console.log('hi! i am ' + this._name);
+  }
+  showScore(): void {
+    console.log('score is ' + this._score);
+  }
+  get name() {
+    return this._name;
+  }
+  get score() {
+    return this._score;
+  }
 }
-// const result = {
-//   a: 32,
-//   b: 33,
-//   final: 100
-// }
-console.log(getTotal(result));
+const tom = new User('tom', 2);
+console.log(tom.name);
+tom.sayHi();
