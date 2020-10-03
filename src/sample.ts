@@ -1,13 +1,23 @@
-// string型
-const string: string = 'hello';
+// 列挙型->わかりやすく定数を表現できる
+enum Signal {
+  Red,
+  Blue,
+  Yellow
+}
+// enum Signal {
+//   Red = 0,
+//   Blue = 1,
+//   Yellow = 2
+// }
 
-// number型
-const number: number = 10;
+const signal: Signal = 2;
 
-// any型
-let x;
-x = 10;
-x = 'hello';
-
-let numberArray: number[];
-numberArray = [10, 5, 3];
+if (signal === Signal.Red) {
+  console.log('赤');
+}
+if (signal === Signal.Blue) {
+  console.log('青');
+}
+if (signal ===Signal.Yellow) {
+  console.log('黄色');
+}
