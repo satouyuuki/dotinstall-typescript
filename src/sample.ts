@@ -1,27 +1,21 @@
-// クラス
-// public, protected, private
-
+// クラスの継承
 class User {
-  /*
-  name: string;
-  constructor(name: string) {
-    this.name = name;
-  }
-  */
-  constructor(private _name: string) { };
+  constructor(protected _name: string) { };
   sayHi(): void {
     console.log("hi! i am " + this._name);
   }
-  get name() {
-    return this._name;
+}
+class AdminUser extends User {
+  private _age: number
+  constructor(_name: string, _age: number) {
+    super(_name);
+    this._age = _age;// setter使わなくても大丈夫
   }
-  set name (newValue: string) {
-    this._name = newValue;
+  public sayHi(): void {
+    console.log('my age: ' + this._age);
+    console.log('my name: ' + this._name);
+    super.sayHi();
   }
 }
-const tom = new User('Tom');
-// console.log(tom._name);// アクセスできない
-console.log(tom.name); // getterで取得する
-tom.name = "TOM";// setterで書き換える
-console.log(tom.name);
-tom.sayHi();
+const admin = new AdminUser('tom', 25);
+console.log(admin.sayHi());
